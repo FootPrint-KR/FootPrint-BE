@@ -1,0 +1,15 @@
+services:
+  postgres:
+    image: postgres:17
+    container_name: footprint-db
+    ports:
+      - "5432:5432"
+    environment:
+      POSTGRES_DB: footprint
+      POSTGRES_USER: footprint
+      POSTGRES_PASSWORD: footprint1234
+    volumes:
+      - footprint-data:/var/lib/postgresql/data
+
+volumes:
+  footprint-data:

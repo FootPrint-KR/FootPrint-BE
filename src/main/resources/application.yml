@@ -1,3 +1,5 @@
 spring:
   application:
     name: footprint
+  profiles:
+    active: local
