@@ -68,6 +68,7 @@ dependencies {
     testImplementation("org.springframework.boot:spring-boot-starter-test")  // JUnit, Mockito  등 포함
     testImplementation("org.springframework.security:spring-security-test") // Security 테스트 유형
     testRuntimeOnly("org.junit.platform:junit-platform-launcher")
+    testRuntimeOnly("com.h2database:h2") // 테스트용 인메모리 DB
 }
 
 tasks.withType<Test> {

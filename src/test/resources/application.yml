@@ -1,0 +1,26 @@
+spring:
+  datasource:
+    url: jdbc:h2:mem:testdb
+    driver-class-name: org.h2.Driver
+    username: sa
+    password:
+  jpa:
+    hibernate:
+      ddl-auto: create-drop
+    database-platform: org.hibernate.dialect.H2Dialect
+  security:
+    user:
+      password: test
+
+jwt:
+  secret: dGVzdC1zZWNyZXQta2V5LWZvci1mb290cHJpbnQtand0LXRva2VuLXZhbGlkYXRpb24=
+  access-token-expiry: 1800000
+  refresh-token-expiry: 1209600000
+
+cloud:
+  aws:
+    credentials:
+      access-key: test
+      secret-key: test
+    region:
+      static: ap-northeast-2
