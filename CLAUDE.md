@@ -4,7 +4,7 @@
 
 ## 기술 스택
 
-- Java 21 / Spring Boot 3.5 / Gradle (Kotlin DSL)
+- Java 21 / Spring Boot 3.5.9 / Gradle (Kotlin DSL)
 - Spring Data JPA / PostgreSQL (Supabase)
 - Spring Security + JWT
 - SpringDoc OpenAPI (Swagger)
