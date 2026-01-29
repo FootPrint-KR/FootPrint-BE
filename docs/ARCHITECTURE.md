@@ -5,9 +5,10 @@
 ```
 com.footprint
 ├── FootprintApplication.java
-├── _global/
+├── global/
 │   ├── config/
-│   ├── entity/
+│   ├── common/
+│   ├── security/
 │   ├── exception/
 │   └── util/
 └── domain/

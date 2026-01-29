@@ -1,0 +1,82 @@
+# FootPrint Backend
+
+여행했던 지역의 경로를 기록하고 공유하는 여행 커뮤니티 서비스
+
+## 기술 스택
+
+- Java 21 / Spring Boot 3.5 / Gradle (Kotlin DSL)
+- Spring Data JPA / PostgreSQL (Supabase)
+- Spring Security + JWT
+- SpringDoc OpenAPI (Swagger)
+- AWS S3 (이미지 업로드)
+- Caffeine Cache
+
+## 빌드 & 실행
+
+```bash
+./gradlew build      # 빌드
+./gradlew bootRun    # 실행
+./gradlew test       # 테스트
+```
+
+## 패키지 구조
+
+```
+com.footprint
+├── global/           # config, common, security, exception, util
+└── domain/{feature}/ # controller, service, repository, entity, dto
+```
+
+## 코딩 컨벤션
+
+- 들여쓰기: 4 spaces
+- 클래스: PascalCase / 메서드·변수: camelCase
+- DTO: `*Request`, `*Response` 접미사
+- 패턴: `docs/coding-patterns.md` 참조
+
+## Git
+
+- 브랜치: `feature/`, `fix/`, `refactor/`
+- PR 대상: `dev`
+
+## 개발 가이드
+
+**코드 작성 전 관련 문서를 반드시 먼저 읽을 것:**
+
+| 작업 | 참조 문서 |
+|------|----------|
+| API 구현 | `docs/api-design.md`, `docs/error-codes.md` |
+| Entity 추가/수정 | `docs/entity-design.md` |
+| 인증/권한 구현 | `docs/auth-policy.md` |
+| 비즈니스 로직 | `docs/business-rules.md` |
+| 설계 확인 | `docs/decisions.md`, `docs/flow.md` |
+| 코딩 패턴 | `docs/coding-patterns.md` |
+
+## 문서 목록
+
+| 문서 | 설명 |
+|------|------|
+| `docs/entity-design.md` | Entity 구조 (V1~V4) |
+| `docs/api-design.md` | API 엔드포인트 개요 |
+| `docs/business-rules.md` | 비즈니스 규칙 |
+| `docs/auth-policy.md` | 인증/권한 정책 |
+| `docs/error-codes.md` | 에러 코드 정의 |
+| `docs/flow.md` | 화면/서비스 플로우 |
+| `docs/decisions.md` | 설계 결정 사항 |
+| `docs/coding-patterns.md` | 코딩 패턴 |
+
+## 프로젝트 배경
+
+- 2021년 학원(중앙 HTA) 팀 프로젝트 "유레카"를 최신 스택으로 리빌딩
+- GOTCHA! 프로젝트 구조를 벤치마킹
+- 상세: `docs/claude.md` 참조
+
+## 버전별 로드맵
+
+| 버전 | 도메인 |
+|------|--------|
+| v1 | auth, user, post, region, category, image, like |
+| v2 | comment, bookmark, report, search, admin |
+| v3 | tag, 대댓글 |
+| v4 | follow, notification |
+| v5 | OAuth |
