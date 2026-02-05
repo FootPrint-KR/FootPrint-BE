@@ -1,0 +1,27 @@
+package com.footprint.domain.post.repository;
+
+import com.footprint.domain.post.entity.Post;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
+import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.jpa.repository.Query;
+import org.springframework.data.repository.query.Param;
+
+public interface PostRepository extends JpaRepository<Post, Long> {
+
+    @Query("SELECT p FROM Post p " +
+            "WHERE p.status = 'PUBLISHED' " +
+            "AND (:regionId IS NULL OR p.city.region.id = :regionId) " +
+            "AND (:cityId IS NULL OR p.city.id = :cityId) " +
+            "AND (:categoryId IS NULL OR p.subCategory.category.id = :categoryId) " +
+            "AND (:subCategoryId IS NULL OR p.subCategory.id = :subCategoryId)")
+    Page<Post> findAllWithFilters(
+            @Param("regionId") Long regionId,
+            @Param("cityId") Long cityId,
+            @Param("categoryId") Long categoryId,
+            @Param("subCategoryId") Long subCategoryId,
+            Pageable pageable
+    );
+
+    Page<Post> findByUserId(Long userId, Pageable pageable);
+}

@@ -6,11 +6,13 @@ import com.footprint.domain.user.entity.User;
 import com.footprint.global.common.BaseEntity;
 import jakarta.persistence.*;
 import lombok.*;
+import org.hibernate.annotations.SQLRestriction;
 
 import java.time.LocalDateTime;
 
 @Entity
 @Table(name = "posts")
+@SQLRestriction("deleted_at IS NULL")
 @Getter
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
 @Builder
@@ -54,4 +56,50 @@ public class Post extends BaseEntity {
     private String status = "DRAFT";
 
     private LocalDateTime deletedAt;
+
+    public void update(City city, SubCategory subCategory, String title, String content, String summary) {
+        this.city = city;
+        this.subCategory = subCategory;
+        this.title = title;
+        this.content = content;
+        this.summary = summary;
+    }
+
+    public void publish() {
+        this.status = "PUBLISHED";
+    }
+
+    public void hide() {
+        this.status = "HIDDEN";
+    }
+
+    public void delete() {
+        this.deletedAt = LocalDateTime.now();
+    }
+
+    public void incrementViewCount() {
+        this.viewCount++;
+    }
+
+    public void incrementLikeCount() {
+        this.likeCount++;
+    }
+
+    public void decrementLikeCount() {
+        if (this.likeCount > 0) {
+            this.likeCount--;
+        }
+    }
+
+    public boolean isOwner(Long userId) {
+        return this.user.getId().equals(userId);
+    }
+
+    public boolean isDeleted() {
+        return this.deletedAt != null;
+    }
+
+    public boolean isPublished() {
+        return "PUBLISHED".equals(this.status);
+    }
 }
