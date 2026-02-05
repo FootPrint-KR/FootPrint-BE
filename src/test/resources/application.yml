@@ -24,3 +24,5 @@ cloud:
       secret-key: test
     region:
       static: ap-northeast-2
+    s3:
+      bucket: test-bucket
