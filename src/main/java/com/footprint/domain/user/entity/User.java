@@ -50,4 +50,16 @@ public class User extends BaseEntity {
     private String status = "ACTIVE";
 
     private LocalDateTime deletedAt;
+
+    public void updateProfile(String nickname, String name, LocalDate birth, Gender gender) {
+        this.nickname = nickname;
+        this.name = name;
+        this.birth = birth;
+        this.gender = gender;
+    }
+
+    public void delete() {
+        this.deletedAt = LocalDateTime.now();
+        this.status = "INACTIVE";
+    }
 }

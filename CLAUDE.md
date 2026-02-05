@@ -39,6 +39,7 @@ com.footprint
 - 브랜치: `feature/`, `fix/`, `refactor/`
 - PR 대상: `dev`
 - **커밋 시 반드시 메시지만 텍스트로 먼저 보여주고, 사용자가 커밋을 요청하면 실행할 것** (공동 커밋 방지)
+- **Co-Authored-By 넣지 말 것**
 - **PR 머지 후**: `dev`로 체크아웃 → `git pull` → 로컬 feature 브랜치 삭제
 
 ## 개발 가이드
