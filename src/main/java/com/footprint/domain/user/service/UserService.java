@@ -28,7 +28,7 @@ public class UserService {
                 .orElseThrow(UserException::notFound);
 
         // 닉네임 변경 시 중복 체크 (본인 닉네임과 다른 경우만)
-        if (!user.getNickname().equals(request.getNickname())
+        if (!request.getNickname().equals(user.getNickname())
                 && userRepository.existsByNickname(request.getNickname())) {
             throw UserException.duplicateNickname();
         }

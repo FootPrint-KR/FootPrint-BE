@@ -2,6 +2,7 @@ package com.footprint.domain.category.service;
 
 import com.footprint.domain.category.dto.CategoryResponse;
 import com.footprint.domain.category.dto.SubCategoryResponse;
+import com.footprint.domain.category.exception.CategoryException;
 import com.footprint.domain.category.repository.CategoryRepository;
 import com.footprint.domain.category.repository.SubCategoryRepository;
 import lombok.RequiredArgsConstructor;
@@ -28,6 +29,9 @@ public class CategoryService {
 
     @Cacheable(value = "subCategories", key = "#categoryId")
     public List<SubCategoryResponse> getSubCategories(Long categoryId) {
+        if (!categoryRepository.existsById(categoryId)) {
+            throw CategoryException.notFound();
+        }
         return subCategoryRepository.findByCategoryId(categoryId).stream()
                 .map(SubCategoryResponse::from)
                 .toList();

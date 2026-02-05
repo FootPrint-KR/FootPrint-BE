@@ -4,10 +4,12 @@ import com.footprint.domain.user.entity.Gender;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.Size;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 
 import java.time.LocalDate;
 
 @Getter
+@NoArgsConstructor
 public class UpdateUserRequest {
 
     @NotBlank(message = "닉네임은 필수입니다")

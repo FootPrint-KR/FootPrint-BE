@@ -2,6 +2,7 @@ package com.footprint.domain.region.service;
 
 import com.footprint.domain.region.dto.CityResponse;
 import com.footprint.domain.region.dto.RegionResponse;
+import com.footprint.domain.region.exception.RegionException;
 import com.footprint.domain.region.repository.CityRepository;
 import com.footprint.domain.region.repository.RegionRepository;
 import lombok.RequiredArgsConstructor;
@@ -28,6 +29,9 @@ public class RegionService {
 
     @Cacheable(value = "cities", key = "#regionId")
     public List<CityResponse> getCities(Long regionId) {
+        if (!regionRepository.existsById(regionId)) {
+            throw RegionException.notFound();
+        }
         return cityRepository.findByRegionId(regionId).stream()
                 .map(CityResponse::from)
                 .toList();
