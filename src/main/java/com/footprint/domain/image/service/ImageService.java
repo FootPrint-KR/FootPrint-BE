@@ -103,6 +103,9 @@ public class ImageService {
     private String uploadToS3(MultipartFile file, Long postId) {
         try {
             String filename = file.getOriginalFilename();
+            if (filename == null || !filename.contains(".")) {
+                throw ImageException.invalidFileType();
+            }
             String extension = filename.substring(filename.lastIndexOf("."));
             String key = "posts/" + postId + "/" + UUID.randomUUID() + extension;
 
@@ -121,7 +124,11 @@ public class ImageService {
     }
 
     private void deleteFromS3(String url) {
-        String key = url.substring(url.lastIndexOf(".com/") + 5);
+        int index = url.lastIndexOf(".com/");
+        if (index == -1 || index + 5 >= url.length()) {
+            throw ImageException.invalidUrl();
+        }
+        String key = url.substring(index + 5);
 
         DeleteObjectRequest request = DeleteObjectRequest.builder()
                 .bucket(bucket)

@@ -28,4 +28,8 @@ public class ImageException extends BusinessException {
     public static ImageException unauthorized() {
         return new ImageException(ImageErrorCode.UNAUTHORIZED);
     }
+
+    public static ImageException invalidUrl() {
+        return new ImageException(ImageErrorCode.INVALID_URL);
+    }
 }

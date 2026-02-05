@@ -1,7 +1,8 @@
 {
   "permissions": {
     "allow": [
-      "Bash(powershell -c \"[System.Text.Encoding]::UTF8.GetString\\([System.Convert]::FromBase64String\\(\\(\\(gh api repos/hanheeda/teamZoom/contents/README.md --jq ''.content''\\) -join ''''\\)\\)\\)\")"
+      "Bash(powershell -c \"[System.Text.Encoding]::UTF8.GetString\\([System.Convert]::FromBase64String\\(\\(\\(gh api repos/hanheeda/teamZoom/contents/README.md --jq ''.content''\\) -join ''''\\)\\)\\)\")",
+      "Bash(gh api:*)"
     ]
   }
 }
