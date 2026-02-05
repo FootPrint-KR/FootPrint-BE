@@ -57,7 +57,8 @@ public class ImageService {
         validateFileType(file);
 
         String url = uploadToS3(file, postId);
-        int seq = currentCount + 1;
+        Integer maxSeq = postImageRepository.findMaxSeqByPostId(postId);
+        int seq = (maxSeq == null ? 0 : maxSeq) + 1;
 
         PostImage image = PostImage.builder()
                 .post(post)
@@ -90,7 +91,7 @@ public class ImageService {
 
     private void validateFileType(MultipartFile file) {
         String filename = file.getOriginalFilename();
-        if (filename == null || filename.isBlank()) {
+        if (filename == null || filename.isBlank() || !filename.contains(".")) {
             throw ImageException.invalidFileType();
         }
 
