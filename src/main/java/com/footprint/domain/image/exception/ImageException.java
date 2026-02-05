@@ -32,4 +32,8 @@ public class ImageException extends BusinessException {
     public static ImageException invalidUrl() {
         return new ImageException(ImageErrorCode.INVALID_URL);
     }
+
+    public static ImageException deleteFailed() {
+        return new ImageException(ImageErrorCode.DELETE_FAILED);
+    }
 }
