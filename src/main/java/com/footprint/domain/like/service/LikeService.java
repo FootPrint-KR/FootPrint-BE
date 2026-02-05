@@ -26,7 +26,7 @@ public class LikeService {
 
     @Transactional
     public LikeResponse toggleLike(Long userId, Long postId) {
-        Post post = postRepository.findById(postId)
+        Post post = postRepository.findByIdWithLock(postId)
                 .orElseThrow(PostException::notFound);
         User user = userRepository.findById(userId)
                 .orElseThrow(UserException::notFound);
