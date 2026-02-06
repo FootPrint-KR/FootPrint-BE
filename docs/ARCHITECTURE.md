@@ -19,14 +19,14 @@ com.footprint
     ├── category/         # v1: 카테고리
     ├── image/            # v1: 이미지
     ├── like/             # v1: 좋아요
-    ├── comment/          # v2: 댓글 / v3: 대댓글
-    ├── bookmark/         # v2: 북마크
-    ├── tag/              # v3: 태그
+    ├── comment/          # v3: 댓글 / v4: 대댓글
+    ├── bookmark/         # v3: 북마크
+    ├── tag/              # v4: 태그
     ├── follow/           # v4: 팔로우
     ├── notification/     # v4: 알림
-    ├── report/           # v2: 신고
-    ├── search/           # v2: 검색
-    └── admin/            # v2~: 관리자
+    ├── report/           # v3: 신고
+    ├── search/           # v3: 검색
+    └── admin/            # v5: 관리자
         ├── code/         # 공통코드 관리
         ├── member/       # 사용자 관리
         └── content/      # 게시물 관리
@@ -48,13 +48,13 @@ domain/{도메인명}/
 
 ## 버전별 로드맵
 
-| 버전 | 도메인 |
+| 버전 | 내용 |
 |------|--------|
-| **v1** | auth, user, post, region, category, image, like |
-| **v2** | comment, bookmark, report, search, admin |
-| **v3** | tag, 대댓글 |
-| **v4** | follow, notification |
-| **v5** | OAuth |
+| **v1** | 핵심 도메인 (auth, user, post, region, category, image, like) |
+| **v2** | 인프라/품질 (Docker, CI/CD, 테스트, 배포 환경) |
+| **v3** | 부가 기능 (comment, bookmark, report, search) |
+| **v4** | 소셜 기능 (follow, notification, tag, 대댓글) |
+| **v5** | OAuth, admin |
 
 ## 기술 스택
 

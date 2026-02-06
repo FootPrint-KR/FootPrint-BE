@@ -77,10 +77,10 @@ com.footprint
 
 ## 버전별 로드맵
 
-| 버전 | 도메인 |
+| 버전 | 내용 |
 |------|--------|
-| v1 | auth, user, post, region, category, image, like |
-| v2 | comment, bookmark, report, search, admin |
-| v3 | tag, 대댓글 |
-| v4 | follow, notification |
-| v5 | OAuth |
+| v1 | 핵심 도메인 (auth, user, post, region, category, image, like) |
+| v2 | 인프라/품질 (Docker, CI/CD, 테스트, 배포 환경) |
+| v3 | 부가 기능 (comment, bookmark, report, search) |
+| v4 | 소셜 기능 (follow, notification, tag, 대댓글) |
+| v5 | OAuth, admin |
