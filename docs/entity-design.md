@@ -3,9 +3,9 @@
 ## 개요
 
 - **V1 (MVP)**: users, posts, regions, cities, categories, sub_categories, post_images, post_likes, recommend_cities, common_code_groups, common_codes
-- **V2**: comments, bookmarks, post_reports
-- **V3**: tags, post_tags, 대댓글 (comment.parent_id)
-- **V4**: follows, notifications
+- **V2**: 인프라/품질 (Docker, CI/CD, 테스트, 배포 환경)
+- **V3**: comments, bookmarks, post_reports
+- **V4**: tags, post_tags, 대댓글 (comment.parent_id), follows, notifications
 
 ---
 
@@ -200,7 +200,7 @@ public enum UserRole {
 
 ---
 
-# V2 Entity
+# V3 Entity
 
 ---
 
@@ -243,7 +243,7 @@ public enum UserRole {
 
 ---
 
-# V3 Entity
+# V4 Entity (태그/대댓글)
 
 ---
 
@@ -265,11 +265,11 @@ public enum UserRole {
 | post_id | Long (FK → posts) | 게시글 |
 | tag_id | Long (FK → tags) | 태그 |
 
-V3에서 comments 테이블에 `parent_id (FK → self)` 추가하여 대댓글 지원.
+V4에서 comments 테이블에 `parent_id (FK → self)` 추가하여 대댓글 지원.
 
 ---
 
-# V4 Entity
+# V4 Entity (소셜)
 
 ---
 
