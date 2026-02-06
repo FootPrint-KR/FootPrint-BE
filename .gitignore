@@ -55,6 +55,4 @@ Thumbs.db
 logs/
 
 ### Blog ###
-docs/blog/*회차.md
-docs/blog/왜 이렇게 짰는가.md
-docs/blog/트러블슈팅.md
+docs/blog/
